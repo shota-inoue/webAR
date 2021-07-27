@@ -1,6 +1,12 @@
 <!DOCTYPE html>
 <html lang="ja">
   <head>
+    <style>
+      model-viewer {
+      width: 100%;
+      height: 640px;
+    }
+    </style>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>mode-viewerテスト</title>
@@ -27,11 +33,13 @@
       camera-controls
       ar
     >
-      <button slot="hotspot-visor" data-position="0 30.75 0.35" data-normal="0 0 1"></button>
+      <button id="bigSize-ar-button" slot="hotspot-demo" data-position="20 90 0" data-normal="0 0 0">アンテナ（巨大ロボ）</button>
+      <button id="middleSize-ar-button" data-position="0 5 0" data-normal="0 0 1">通常サイズAR</button>
+      <!-- <button id="bigSize-ar-button" data-position="0 0 0" data-normal="0 0 1">ビックサイズAR</button> -->
     </model-viewer>
 
-    <button id="middleSize-ar-button">通常サイズAR</button>
-    <button id="bigSize-ar-button">ビックサイズAR</button>
+    <!-- <button id="middleSize-ar-button">通常サイズAR</button>
+    <button id="bigSize-ar-button">ビックサイズAR</button> -->
 
     <div hidden> 
       <model-viewer
