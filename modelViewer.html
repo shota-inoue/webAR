@@ -31,7 +31,7 @@
     <button id="middleSize-ar-button">通常サイズAR</button>
     <button id="bigSize-ar-button">ビックサイズAR</button>
 
-    <div hidden> 
+    <div> 
       <model-viewer
         id="big"
         src="./assets/RobotRed11.glb"
@@ -46,12 +46,14 @@
   </body>
     <script>
       document.querySelector('#middleSize-ar-button').addEventListener('click', (event) => {
-        const modelViewer = document.querySelector('#middle');
-        modelViewer.activateAR();
+        const middle = document.querySelector('#middle');
+        console.log(middle);
+        middle.activateAR();
       });
       document.querySelector('#bigSize-ar-button').addEventListener('click', (event) => {
-        const modelViewer = document.querySelector('#big');
-        modelViewer.activateAR();
+        const big = document.querySelector('#big');
+        console.log(big);
+        big.activateAR(big);
       });
     </script>
 </html>
