@@ -34,6 +34,7 @@
       ar
     >
       <button id="bigSize-ar-button" slot="hotspot-demo" data-position="20 90 0" data-normal="0 0 0">アンテナ（巨大ロボ）</button>
+      <button id="cup-ar-button" slot="hotspot-hand" data-position="50 30 0" data-normal="0 0 0">手（カップ）</button>
       <button id="middleSize-ar-button" slot="ar-button" data-position="0 5 0" data-normal="0 0 1">通常サイズAR</button>
       <!-- <button id="bigSize-ar-button" data-position="0 0 0" data-normal="0 0 1">ビックサイズAR</button> -->
     </model-viewer>
@@ -52,6 +53,18 @@
         ar
       ></model-viewer>
     </div>
+
+    <div hidden> 
+      <model-viewer
+        id="cup"
+        src="./assets/cup_saucer_set.glb"
+        ios-src="./assets/cup_saucer_set.usdz"
+        alt="A 3D model"
+        auto-rotate
+        camera-controls
+        ar
+      ></model-viewer>
+    </div>
     
   </body>
     <script>
@@ -64,6 +77,11 @@
         const big = document.querySelector('#big');
         console.log(big);
         big.activateAR(big);
+      });
+       document.querySelector('#cup-ar-button').addEventListener('click', (event) => {
+        const middle = document.querySelector('#cup');
+        console.log(middle);
+        middle.activateAR();
       });
     </script>
 </html>
