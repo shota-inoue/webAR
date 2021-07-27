@@ -19,6 +19,7 @@
 
     ロボット
     <model-viewer
+      id="middle"
       src="./assets/RobotRed10.glb"
       ios-src="./assets/RobotRed10.usdz"
       alt="A 3D model"
@@ -32,6 +33,7 @@
 
     <div hidden> 
       <model-viewer
+        id="big"
         src="./assets/RobotRed11.glb"
         ios-src="./assets/RobotRed11.usdz"
         alt="A 3D model"
@@ -44,11 +46,11 @@
   </body>
     <script>
       document.querySelector('#middleSize-ar-button').addEventListener('click', (event) => {
-        const modelViewer = document.querySelector("model-viewer");
+        const modelViewer = document.querySelector('#middle');
         modelViewer.activateAR();
       });
       document.querySelector('#bigSize-ar-button').addEventListener('click', (event) => {
-        const modelViewer = document.querySelector("model-viewer");
+        const modelViewer = document.querySelector('#big');
         modelViewer.activateAR();
       });
     </script>
