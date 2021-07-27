@@ -27,14 +27,29 @@
       ar
     ></model-viewer>
 
-    巨大ロボット
-    <model-viewer
-      src="./assets/RobotRed11.glb"
-      ios-src="./assets/RobotRed11.usdz"
-      alt="A 3D model"
-      auto-rotate
-      camera-controls
-      ar
-    ></model-viewer>
+    <button id="middleSize-ar-button">通常サイズAR</button>
+    <button id="bigSize-ar-button">ビックサイズAR</button>
+
+    <div hidden> 
+      <model-viewer
+        src="./assets/RobotRed11.glb"
+        ios-src="./assets/RobotRed11.usdz"
+        alt="A 3D model"
+        auto-rotate
+        camera-controls
+        ar
+      ></model-viewer>
+    </div>
+    
   </body>
+    <script>
+      document.querySelector('#middleSize-ar-button').addEventListener('click', (event) => {
+        const modelViewer = document.querySelector("model-viewer");
+        modelViewer.activateAR();
+      });
+      document.querySelector('#bigSize-ar-button').addEventListener('click', (event) => {
+        const modelViewer = document.querySelector("model-viewer");
+        modelViewer.activateAR();
+      });
+    </script>
 </html>
