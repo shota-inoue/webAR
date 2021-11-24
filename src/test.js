@@ -21,7 +21,7 @@ window.onload = () => {
 
   m1.setAttribute("id", "middle");
   m1.setAttribute("src", "./assets/RobotRed10.glb");
-  m1.setAttribute("ios-src", "./assets/RobotRed10.usdz");
+  m1.setAttribute("ios-src", "./assets/RobotRed10.usdz#allowsContentScaling=0");
   m1.setAttribute("alt", "A 3D model");
   m1.setAttribute("auto-rotate", "");
   m1.setAttribute("ar", "");
