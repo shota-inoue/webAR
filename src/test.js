@@ -58,5 +58,6 @@ window.onload = () => {
     document.querySelector('#diffuse').addEventListener('input', (event) => {
       applyPBRTexture('baseColorTexture', event);
     });
+
   });
 };

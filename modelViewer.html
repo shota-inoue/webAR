@@ -1,125 +1,142 @@
 <!DOCTYPE html>
 <html lang="ja">
-  <head>
-    <style>
-      model-viewer {
+
+<head>
+  <style>
+    model-viewer {
       width: 100%;
       height: 640px;
     }
-    </style>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>mode-viewerテスト</title>
-    <!-- Import the component -->
-    <script
-      type="module"
-      src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"
-    ></script>
-    <script
-      nomodule
-      src="https://unpkg.com/@google/model-viewer/dist/model-viewer-legacy.js"
-    ></script>
-    <script
-      src="src/test.js"
-    >
-    </script>
-  </head>
-  <body>
-    model-viewerテスト<br>
 
-    ロボット
-    <model-viewer
-      id="middle"
-      src="./assets/RobotRed10.glb"
-      ios-src="./assets/RobotRed10.usdz"
-      alt="A 3D model"
-      auto-rotate
-      camera-controls
-      ar
-      ar-scale="fixed"
-    >
-      <button id="bigSize-ar-button" slot="hotspot-demo" data-position="20 90 0" data-normal="0 0 0">アンテナ（巨大ロボ）</button>
-      <button id="cup-ar-button" slot="hotspot-hand" data-position="50 30 0" data-normal="0 0 0">手（カップ）</button>
-      <button id="middleSize-ar-button" slot="ar-button" data-position="0 5 0" data-normal="0 0 1">通常サイズAR</button>
-      <!-- <button id="bigSize-ar-button" data-position="0 0 0" data-normal="0 0 1">ビックサイズAR</button> -->
-    </model-viewer>
+    #controls {
+      position: absolute;
+      bottom: 16px;
+      left: 16px;
+      max-width: unset;
+      transform: unset;
+    }
 
-        ロボット(1/3ScaleForAndroid)
-    <model-viewer
-      src="./assets/RobotRed10forA.glb"
-      ios-src="./assets/RobotRed10.usdz"
-      alt="A 3D model"
-      auto-rotate
-      camera-controls
-      ar
-    >
-    </model-viewer>
+    .dot {
+      display: block;
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.25);
+      background: #fff;
+      --min-hotspot-opacity: 0;
+    }
 
-        ロボット(1/10ScaleForAndroid)
-    <model-viewer
-      src="./assets/RobotRed10forA1.glb"
-      ios-src="./assets/RobotRed10.usdz"
-      alt="A 3D model"
-      auto-rotate
-      camera-controls
-      ar
-    >
-    </model-viewer>
+    .dim {
+      background: #fff;
+      border-radius: 4px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.25);
+      color: rgba(0, 0, 0, 0.8);
+      display: block;
+      font-family: Futura, Helvetica Neue, sans-serif;
+      font-size: 18px;
+      font-weight: 700;
+      max-width: 128px;
+      overflow-wrap: break-word;
+      padding: 0.5em 1em;
+      position: absolute;
+      width: max-content;
+      height: max-content;
+      transform: translate3d(-50%, -50%, 0);
+      --min-hotspot-opacity: 0;
+    }
 
-       ロボット(1/20ScaleForAndroid)
-    <model-viewer
-      src="./assets/RobotRed10forA2.glb"
-      ios-src="./assets/RobotRed10.usdz"
-      alt="A 3D model"
-      auto-rotate
-      camera-controls
-      ar
-    >
-    </model-viewer>
+    .show {
+      --min-hotspot-opacity: 1;
+    }
 
-    <!-- <button id="middleSize-ar-button">通常サイズAR</button>
+    .hide {
+      display: none;
+    }
+
+    /* This keeps child nodes hidden while the element loads */
+    :not(:defined)>* {
+      display: none;
+    }
+  </style>
+  
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>mode-viewerテスト</title>
+  <!-- Import the component -->
+  <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
+  <script nomodule src="https://unpkg.com/@google/model-viewer/dist/model-viewer-legacy.js"></script>
+  <script src="src/test.js">
+  </script>
+</head>
+
+<body>
+  model-viewerテスト<br>
+
+  ロボット
+  <model-viewer id="middle" src="./assets/RobotRed10.glb" ios-src="./assets/RobotRed10.usdz" alt="A 3D model"
+    auto-rotate camera-controls ar ar-scale="fixed">
+    <button id="bigSize-ar-button" slot="hotspot-demo" data-position="20 90 0" data-normal="0 0 0">アンテナ（巨大ロボ）</button>
+    <button id="cup-ar-button" slot="hotspot-hand" data-position="50 30 0" data-normal="0 0 0">手（カップ）</button>
+    <button id="middleSize-ar-button" slot="ar-button" data-position="0 5 0" data-normal="0 0 1">通常サイズAR</button>
+    <!-- <button id="bigSize-ar-button" data-position="0 0 0" data-normal="0 0 1">ビックサイズAR</button> -->
+  </model-viewer>
+
+  ロボット(1/3ScaleForAndroid)
+  <model-viewer src="./assets/RobotRed10forA.glb" ios-src="./assets/RobotRed10.usdz" alt="A 3D model" auto-rotate
+    camera-controls ar>
+    <button slot="hotspot-dot+X-Y+Z" class="dot" data-position="1 -1 1" data-normal="1 0 0"></button>
+    <button slot="hotspot-dim+X-Y" class="dim" data-position="1 -1 0" data-normal="1 0 0"></button>
+    <button slot="hotspot-dot+X-Y-Z" class="dot" data-position="1 -1 -1" data-normal="1 0 0"></button>
+    <button slot="hotspot-dim+X-Z" class="dim" data-position="1 0 -1" data-normal="1 0 0"></button>
+    <button slot="hotspot-dot+X+Y-Z" class="dot show" data-position="1 1 -1" data-normal="0 1 0"></button>
+    <button slot="hotspot-dim+Y-Z" class="dim show" data-position="0 -1 -1" data-normal="0 1 0"></button>
+    <button slot="hotspot-dot-X+Y-Z" class="dot show" data-position="-1 1 -1" data-normal="0 1 0"></button>
+    <button slot="hotspot-dim-X-Z" class="dim" data-position="-1 0 -1" data-normal="-1 0 0"></button>
+    <button slot="hotspot-dot-X-Y-Z" class="dot" data-position="-1 -1 -1" data-normal="-1 0 0"></button>
+    <button slot="hotspot-dim-X-Y" class="dim" data-position="-1 -1 0" data-normal="-1 0 0"></button>
+    <button slot="hotspot-dot-X-Y+Z" class="dot" data-position="-1 -1 1" data-normal="-1 0 0"></button>
+  </model-viewer>
+
+  ロボット(1/10ScaleForAndroid)
+  <model-viewer src="./assets/RobotRed10forA1.glb" ios-src="./assets/RobotRed10.usdz" alt="A 3D model" auto-rotate
+    camera-controls ar>
+  </model-viewer>
+
+  ロボット(1/20ScaleForAndroid)
+  <model-viewer src="./assets/RobotRed10forA2.glb" ios-src="./assets/RobotRed10.usdz" alt="A 3D model" auto-rotate
+    camera-controls ar>
+  </model-viewer>
+
+  <!-- <button id="middleSize-ar-button">通常サイズAR</button>
     <button id="bigSize-ar-button">ビックサイズAR</button> -->
 
-    <div hidden> 
-      <model-viewer
-        id="big"
-        src="./assets/RobotRed11.glb"
-        ios-src="./assets/RobotRed11.usdz"
-        alt="A 3D model"
-        auto-rotate
-        camera-controls
-        ar
-      ></model-viewer>
-    </div>
+  <div hidden>
+    <model-viewer id="big" src="./assets/RobotRed11.glb" ios-src="./assets/RobotRed11.usdz" alt="A 3D model" auto-rotate
+      camera-controls ar></model-viewer>
+  </div>
 
-    <div hidden> 
-      <model-viewer
-        id="cup"
-        src="./assets/cup_saucer_set.glb"
-        ios-src="./assets/cup_saucer_set.usdz"
-        alt="A 3D model"
-        auto-rotate
-        camera-controls
-        ar
-      ></model-viewer>
-    </div>
-    
-  </body>
-    <script>
-      document.querySelector('#middleSize-ar-button').addEventListener('click', (event) => {
-        const middle = document.querySelector('#middle');
-        console.log(middle);
-        middle.activateAR();
-      });
-      document.querySelector('#bigSize-ar-button').addEventListener('click', (event) => {
-        const big = document.querySelector('#big');
-        console.log(big);
-        big.activateAR(big);
-      });
-       document.querySelector('#cup-ar-button').addEventListener('click', (event) => {
-        const middle = document.querySelector('#cup');
-        console.log(middle);
-        middle.activateAR();
-      });
-    </script>
+  <div hidden>
+    <model-viewer id="cup" src="./assets/cup_saucer_set.glb" ios-src="./assets/cup_saucer_set.usdz" alt="A 3D model"
+      auto-rotate camera-controls ar></model-viewer>
+  </div>
+
+</body>
+<script>
+  document.querySelector('#middleSize-ar-button').addEventListener('click', (event) => {
+    const middle = document.querySelector('#middle');
+    console.log(middle);
+    middle.activateAR();
+  });
+  document.querySelector('#bigSize-ar-button').addEventListener('click', (event) => {
+    const big = document.querySelector('#big');
+    console.log(big);
+    big.activateAR(big);
+  });
+  document.querySelector('#cup-ar-button').addEventListener('click', (event) => {
+    const middle = document.querySelector('#cup');
+    console.log(middle);
+    middle.activateAR();
+  });
+</script>
+
 </html>
