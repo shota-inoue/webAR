@@ -19,6 +19,10 @@
       nomodule
       src="https://unpkg.com/@google/model-viewer/dist/model-viewer-legacy.js"
     ></script>
+    <script
+      src="src/test.js"
+    >
+    </script>
   </head>
   <body>
     model-viewerテスト<br>
@@ -37,6 +41,39 @@
       <button id="cup-ar-button" slot="hotspot-hand" data-position="50 30 0" data-normal="0 0 0">手（カップ）</button>
       <button id="middleSize-ar-button" slot="ar-button" data-position="0 5 0" data-normal="0 0 1">通常サイズAR</button>
       <!-- <button id="bigSize-ar-button" data-position="0 0 0" data-normal="0 0 1">ビックサイズAR</button> -->
+    </model-viewer>
+
+        ロボット(1/3ScaleForAndroid)
+    <model-viewer
+      src="./assets/RobotRed10forA.glb"
+      ios-src="./assets/RobotRed10.usdz"
+      alt="A 3D model"
+      auto-rotate
+      camera-controls
+      ar
+    >
+    </model-viewer>
+
+        ロボット(1/10ScaleForAndroid)
+    <model-viewer
+      src="./assets/RobotRed10forA1.glb"
+      ios-src="./assets/RobotRed10.usdz"
+      alt="A 3D model"
+      auto-rotate
+      camera-controls
+      ar
+    >
+    </model-viewer>
+
+       ロボット(1/20ScaleForAndroid)
+    <model-viewer
+      src="./assets/RobotRed10forA2.glb"
+      ios-src="./assets/RobotRed10.usdz"
+      alt="A 3D model"
+      auto-rotate
+      camera-controls
+      ar
+    >
     </model-viewer>
 
     <!-- <button id="middleSize-ar-button">通常サイズAR</button>
