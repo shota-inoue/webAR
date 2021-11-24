@@ -29,26 +29,29 @@
 
     ロボット
     <div id="test1">
-
+      <select id="diffuse">
+        <option value="">default</option>
+        <option value="images/avatar_f.png">mix</option>
+      </select>
     </div>
     
     
   </body>
     <script>
-      document.querySelector('#middleSize-ar-button').addEventListener('click', (event) => {
-        const middle = document.querySelector('#middle');
-        console.log(middle);
-        middle.activateAR();
-      });
-      document.querySelector('#bigSize-ar-button').addEventListener('click', (event) => {
-        const big = document.querySelector('#big');
-        console.log(big);
-        big.activateAR(big);
-      });
-       document.querySelector('#cup-ar-button').addEventListener('click', (event) => {
-        const middle = document.querySelector('#cup');
-        console.log(middle);
-        middle.activateAR();
-      });
+      // document.querySelector('#middleSize-ar-button').addEventListener('click', (event) => {
+      //   const middle = document.querySelector('#middle');
+      //   console.log(middle);
+      //   middle.activateAR();
+      // });
+      // document.querySelector('#bigSize-ar-button').addEventListener('click', (event) => {
+      //   const big = document.querySelector('#big');
+      //   console.log(big);
+      //   big.activateAR(big);
+      // });
+      //  document.querySelector('#cup-ar-button').addEventListener('click', (event) => {
+      //   const middle = document.querySelector('#cup');
+      //   console.log(middle);
+      //   middle.activateAR();
+      // });
     </script>
 </html>
