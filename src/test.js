@@ -11,6 +11,7 @@ window.onload = () => {
 　b1.setAttribute("slot","hotspot-demo");
 　b1.setAttribute("data-position","20 90 0");
 　b1.setAttribute("data-normal","0 0 0");
+　b1.setAttribute("ar-scale", "fixed")
 　b1.textContent = "アンテナ（巨大ロボ）";
 
 //       <button id="bigSize-ar-button" slot="hotspot-demo" data-position="20 90 0" data-normal="0 0 0">アンテナ（巨大ロボ）</button>
@@ -23,7 +24,7 @@ window.onload = () => {
   m1.setAttribute("alt", "A 3D model");
   m1.setAttribute("auto-rotate", "");
   m1.setAttribute("camera-controls", "");
-  m1.setAttribute("ar", "");
+  m1.setAttribute("ar", "fixed");
 
   m1.appendChild(b1);
   test1.appendChild(m1);
