@@ -24,7 +24,7 @@ window.onload = () => {
   m1.setAttribute("alt", "A 3D model");
   m1.setAttribute("auto-rotate", "");
   m1.setAttribute("camera-controls", "");
-  m1.setAttribute("ar", "fixed");
+  m1.setAttribute("ar-scale", "fixed");
 
   m1.appendChild(b1);
   test1.appendChild(m1);
